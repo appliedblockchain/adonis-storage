@@ -14,7 +14,8 @@ class S3 {
     this.s3 = new AWS.S3({
       accessKeyId: this.disk.key,
       secretAccessKey: this.disk.secret,
-      region: this.disk.region
+      region: this.disk.region,
+      signatureVersion: 'v4',
     })
   }
 
