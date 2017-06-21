@@ -73,7 +73,7 @@ class S3 {
         Bucket: this.disk.bucket,
         Key: path,
         Body: contents
-      } driverOpts), (err, data) => {
+      }, driverOpts), (err, data) => {
         if (err) return reject(err)
         return resolve(data.Location)
       })
