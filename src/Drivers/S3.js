@@ -67,13 +67,13 @@ class S3 {
   /**
    * Write contents to a file at `path`.
    */
-  * put (path, contents) {
+  * put (path, contents, driverOpts={}) {
     return new Promise((resolve, reject) => {
-      this.s3.upload({
+      this.s3.upload(Object.assign({
         Bucket: this.disk.bucket,
         Key: path,
         Body: contents
-      }, (err, data) => {
+      } driverOpts), (err, data) => {
         if (err) return reject(err)
         return resolve(data.Location)
       })

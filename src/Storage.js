@@ -51,11 +51,11 @@ class Storage {
    * @param  string  $visibility
    * @return bool
    */
-  * put (path, contents) {
+  * put (path, contents, driverOpts={}) {
     if (contents instanceof File) {
       return yield this.putFile(path, contents)
     }
-    return yield this.driver.put(path, contents)
+    return yield this.driver.put(path, contents, driverOpts)
   }
 
   /**
@@ -65,9 +65,9 @@ class Storage {
    * @param  {File}  file
    * @return string|false
    */
-  * putFile (path, file) {
+  * putFile (path, file, driverOpts={}) {
     const fileHash = yield md5File(file.file.path)
-    return yield this.putFileAs(path, file, fileHash)
+    return yield this.putFileAs(path, file, fileHash, driverOpts)
   }
 
   /**
@@ -78,9 +78,9 @@ class Storage {
    * @param  string  name
    * @return string|false
    */
-  * putFileAs (filePath, file, name) {
+  * putFileAs (filePath, file, name, driverOpts={}) {
     const stream = fs.createReadStream(file.file.path)
-    return yield this.put(path.join(filePath, name), stream)
+    return yield this.put(path.join(filePath, name), stream, driverOpts)
   }
 
   /**
