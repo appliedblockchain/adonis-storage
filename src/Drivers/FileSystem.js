@@ -71,7 +71,7 @@ class FileSystem {
   /**
    * Write contents to a file at `path`.
    */
-  put (path, contents) {
+  put (path, contents, driverOpts={}) {
     const fullPath = this._fullPath(path)
     // Create directory if needed
     const pathWithoutFilename = fullPath.slice(0, fullPath.lastIndexOf('/'))

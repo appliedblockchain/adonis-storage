@@ -49,6 +49,7 @@ class Storage {
    * @param  string  $path
    * @param  string|resource  $contents
    * @param  string  $visibility
+   * @param  object  driveroptions
    * @return bool
    */
   * put (path, contents, driverOpts={}) {
@@ -63,6 +64,7 @@ class Storage {
    *
    * @param  string  path
    * @param  {File}  file
+   * @param  object  driveroptions
    * @return string|false
    */
   * putFile (path, file, driverOpts={}) {
@@ -76,6 +78,7 @@ class Storage {
    * @param  string  path
    * @param  {File} file
    * @param  string  name
+   * @param  object  driveroptions
    * @return string|false
    */
   * putFileAs (filePath, file, name, driverOpts={}) {

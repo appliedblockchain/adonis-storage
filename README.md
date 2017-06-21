@@ -73,8 +73,12 @@ yield Storage.putFile('path/to/file/directory', contents)
 // File will be stored at `path/to/file/directory/filename`
 yield Storage.putFileAs('path/to/file/directory', contents, filename)
 
+// Additional parameters can be passed to the S3 driver
+yield Storage.putFile('/path/to/file', contents, {ContentType: 'image/jpeg'})
+
 // Return the url or absolute file path for accessing the file
 yield Storage.url('path/to/file')
+
 
 ```
 
